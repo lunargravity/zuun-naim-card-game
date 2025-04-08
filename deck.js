@@ -1,19 +1,5 @@
-const SUITS = ['Hearts', 'Spades', 'Clubs', 'Diamonds'];
-const VALUES = [
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  '10',
-  'Jack',
-  'Queen',
-  'King',
-  'Ace',
-];
+const SUITS = ['H', 'S', 'C', 'D'];
+const VALUES = ['7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
 export default class Deck {
   constructor(cards = createDeck()) {
@@ -32,12 +18,20 @@ export default class Deck {
       this.cards[i] = oldValue;
     }
   }
+
+  show() {
+    this.cards.forEach((card) => card.display());
+  }
 }
 
 class Card {
   constructor(suit, value) {
     this.suit = suit;
     this.value = value;
+  }
+
+  display() {
+    console.log(`${this.suit}${this.value}`);
   }
 }
 
